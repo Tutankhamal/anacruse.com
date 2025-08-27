@@ -1,3 +1,12 @@
+/*
+ * Anacruse Website - Main JavaScript
+ * 
+ * Developer: André "Tutankhamal" Borba
+ * Website: https://tutankhamal.com
+ * 
+ * Created for Anacruse Band Official Website
+ */
+
 // Core interactions: navbar, language redirect, background reactivity, lite-youtube helper
 (function(){
   const $ = (q,ctx=document)=>ctx.querySelector(q);
@@ -396,4 +405,80 @@
     if(prev) prev.addEventListener('click', ()=> track.scrollBy({left:-by(), behavior:'smooth'}));
     if(next) next.addEventListener('click', ()=> track.scrollBy({left: by(), behavior:'smooth'}));
   });
+})();
+
+// Developer Credit Interactive Effects
+(function(){
+  const initializeDeveloperCredit = () => {
+    const developerCredit = document.querySelector('.developer-credit a');
+    
+    if (developerCredit) {
+      // Add random glitch effect
+      setInterval(() => {
+        if (Math.random() < 0.1) { // 10% chance every interval
+          developerCredit.style.animation = 'developerGlitch 0.2s ease-in-out';
+          setTimeout(() => {
+            developerCredit.style.animation = '';
+          }, 200);
+        }
+      }, 3000);
+      
+      // Enhanced hover effects
+      developerCredit.addEventListener('mouseenter', function() {
+        this.style.textShadow = `
+          0 0 5px rgba(34, 211, 238, 1),
+          0 0 10px rgba(34, 211, 238, 0.8),
+          0 0 15px rgba(34, 211, 238, 0.6),
+          0 0 20px rgba(34, 211, 238, 0.4)`;
+      });
+      
+      developerCredit.addEventListener('mouseleave', function() {
+        this.style.textShadow = '0 0 5px rgba(168, 85, 247, 0.3)';
+      });
+      
+      // Click effect
+      developerCredit.addEventListener('click', function(e) {
+        // Create ripple effect
+        const ripple = document.createElement('span');
+        ripple.style.cssText = `
+          position: absolute;
+          border-radius: 50%;
+          background: rgba(34, 211, 238, 0.6);
+          transform: scale(0);
+          animation: ripple 0.6s linear;
+          pointer-events: none;
+          left: ${e.offsetX - 10}px;
+          top: ${e.offsetY - 10}px;
+          width: 20px;
+          height: 20px;
+        `;
+        
+        this.style.position = 'relative';
+        this.appendChild(ripple);
+        
+        setTimeout(() => {
+          ripple.remove();
+        }, 600);
+      });
+    }
+  };
+
+  // Add ripple animation keyframes via JavaScript
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes ripple {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+
+  // Initialize when DOM is loaded
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeDeveloperCredit);
+  } else {
+    initializeDeveloperCredit();
+  }
 })();

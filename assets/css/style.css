@@ -1,4 +1,12 @@
-/* Core Theme: Cyberpunk / Retrowave / Vaporwave - Dark-only */
+/*
+ * Anacruse Website Styles
+ * Core Theme: Cyberpunk / Retrowave / Vaporwave - Dark-only
+ * 
+ * Developer: André "Tutankhamal" Borba
+ * Website: https://tutankhamal.com
+ * 
+ * Created for Anacruse Band Official Website
+ */
 :root{
   --bg:#0a0a0f;
   --bg-soft:#0f0f16;
@@ -593,6 +601,83 @@ lite-youtube > .lyt-inner{ position:absolute; inset:0; background-size:cover; ba
 .contact-grid .contact-card h2{ color: var(--primary); font-size: 18px }
 .contact-info{ background: rgba(34,211,238,0.05); border: 1px solid rgba(34,211,238,0.2); border-radius: var(--radius); padding: 20px; margin-top: 16px }
 .contact-info p{ margin-bottom: 12px; line-height: 1.6 }
+
+/* Developer Credit Styles */
+.developer-credit {
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(168, 85, 247, 0.2);
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  animation: developerPulse 3s ease-in-out infinite;
+}
+
+.developer-credit a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 5px rgba(168, 85, 247, 0.3);
+}
+
+.developer-credit a:hover {
+  color: var(--accent);
+  text-shadow: 
+    0 0 5px rgba(34, 211, 238, 0.8),
+    0 0 10px rgba(34, 211, 238, 0.6),
+    0 0 15px rgba(34, 211, 238, 0.4);
+  transform: scale(1.05);
+}
+
+.developer-credit a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.1), transparent);
+  opacity: 0;
+  animation: techScan 2s ease-in-out infinite;
+}
+
+.developer-credit a:hover::before {
+  animation: techScanHover 0.6s ease-in-out;
+}
+
+@keyframes developerPulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 0.9; }
+}
+
+@keyframes techScan {
+  0% { transform: translateX(-100%); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateX(100%); opacity: 0; }
+}
+
+@keyframes techScanHover {
+  0% { transform: translateX(-100%); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateX(100%); opacity: 0; }
+}
+
+/* Glitch effect for developer credit on hover */
+.developer-credit a:hover {
+  animation: developerGlitch 0.3s ease-in-out;
+}
+
+@keyframes developerGlitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-1px, 1px); }
+  40% { transform: translate(-1px, -1px); }
+  60% { transform: translate(1px, 1px); }
+  80% { transform: translate(1px, -1px); }
+  100% { transform: translate(0); }
+}
 
 /* Video cards */
 .video-card{ background: rgba(0, 0, 0, 0.3); border-radius: 12px; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.1) }
