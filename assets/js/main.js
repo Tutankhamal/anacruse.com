@@ -343,6 +343,7 @@
     
     modal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
+    document.body.classList.add('modal-view');
   };
 
   // Close modal
@@ -353,6 +354,7 @@
       const iframe = document.getElementById('video-modal-iframe');
       iframe.src = '';
       document.body.style.overflow = '';
+      document.body.classList.remove('modal-view');
     }
   };
 
@@ -405,6 +407,136 @@
     if(prev) prev.addEventListener('click', ()=> track.scrollBy({left:-by(), behavior:'smooth'}));
     if(next) next.addEventListener('click', ()=> track.scrollBy({left: by(), behavior:'smooth'}));
   });
+})();
+
+// Mercado Pago modal close functionality
+(function(){
+  // Function to setup Mercado Pago modal close functionality
+  const setupMercadoPagoModalClose = () => {
+    // Observer to detect when modal is added to DOM
+    const observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        mutation.addedNodes.forEach(function(node) {
+          if (node.nodeType === 1) {
+            // Check for various modal patterns including the specific MP class
+            const isModal = node.classList && (
+              node.classList.contains('mp-mercadopago-checkout-wrapper') ||
+              node.classList.contains('mercadopago-checkout-wrapper') ||
+              node.style.position === 'fixed' ||
+              (node.style.zIndex && parseInt(node.style.zIndex) > 999) ||
+              node.className.includes('checkout') ||
+              node.className.includes('mp-mercadopago') ||
+              node.id.includes('mercadopago')
+            );
+            
+            if (isModal) {
+              setupModalCloseEvents(node);
+            }
+            
+            // Also check child elements
+            const modalElements = node.querySelectorAll && node.querySelectorAll(
+              '.mp-mercadopago-checkout-wrapper, .mercadopago-checkout-wrapper, div[style*="position: fixed"], div[class*="checkout"], div[class*="mp-mercadopago"], div[id*="mercadopago"], div[style*="z-index"]'
+            );
+            if (modalElements && modalElements.length > 0) {
+              modalElements.forEach(modal => setupModalCloseEvents(modal));
+            }
+          }
+        });
+      });
+    });
+    
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+    
+    // Also check for existing modals
+    const existingModals = document.querySelectorAll(
+      '.mp-mercadopago-checkout-wrapper, .mercadopago-checkout-wrapper, div[style*="position: fixed"], div[class*="checkout"], div[class*="mp-mercadopago"], div[id*="mercadopago"]'
+    );
+    existingModals.forEach(modal => setupModalCloseEvents(modal));
+  };
+
+  // Function to setup close events for the modal
+  const setupModalCloseEvents = (modalWrapper) => {
+    if (!modalWrapper || modalWrapper.dataset.closeEventsAdded) return;
+    modalWrapper.dataset.closeEventsAdded = 'true';
+    
+    // Add modal-view class to body when modal is detected
+    document.body.classList.add('modal-view');
+    
+    const modalContainer = modalWrapper.querySelector('.mercadopago-checkout-container') ||
+                          modalWrapper.querySelector('div[class*="checkout-container"]') ||
+                          modalWrapper.querySelector('div[class*="modal-container"]') ||
+                          modalWrapper.children[0];
+    
+    // Close modal when clicking on overlay (outside container)
+    modalWrapper.addEventListener('click', function(e) {
+      if (e.target === modalWrapper) {
+        closeModal(modalWrapper);
+      }
+    });
+    
+    // Close modal when clicking the X button (pseudo-element click simulation)
+    if (modalContainer) {
+      modalContainer.addEventListener('click', function(e) {
+        const rect = modalContainer.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        // Check if click is in the area of the X button (top-right corner)
+        if (x >= rect.width - 45 && x <= rect.width - 15 && y >= 10 && y <= 40) {
+          closeModal(modalWrapper);
+        }
+      });
+    }
+    
+    // Close modal with ESC key
+    const escHandler = function(e) {
+      if (e.key === 'Escape' && modalWrapper.parentNode) {
+        closeModal(modalWrapper);
+        document.removeEventListener('keydown', escHandler);
+      }
+    };
+    document.addEventListener('keydown', escHandler);
+  };
+
+  // Function to close the modal
+  const closeModal = (modalWrapper) => {
+    if (modalWrapper && modalWrapper.parentNode) {
+      modalWrapper.style.opacity = '0';
+      modalWrapper.style.transform = 'scale(0.9)';
+      modalWrapper.style.transition = 'all 0.3s ease';
+      
+      // Remove modal-view class from body
+      document.body.classList.remove('modal-view');
+      
+      setTimeout(() => {
+        if (modalWrapper.parentNode) {
+          modalWrapper.parentNode.removeChild(modalWrapper);
+        }
+      }, 300);
+    }
+  };
+
+  // Initialize when DOM is loaded
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupMercadoPagoModalClose);
+  } else {
+    setupMercadoPagoModalClose();
+  }
+  
+  // Also run periodically to catch any missed modals (reduced interval for better detection)
+  setInterval(() => {
+    const modals = document.querySelectorAll(
+      '.mp-mercadopago-checkout-wrapper:not([data-close-events-added]), .mercadopago-checkout-wrapper:not([data-close-events-added]), div[style*="position: fixed"]:not([data-close-events-added])'
+    );
+    modals.forEach(modal => {
+      if (modal.style.zIndex && parseInt(modal.style.zIndex) > 999) {
+        setupModalCloseEvents(modal);
+      }
+    });
+  }, 500);
 })();
 
 // Developer Credit Interactive Effects
