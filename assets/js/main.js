@@ -126,10 +126,19 @@
     anacruse: 'UCFfqCGtJckEiFJX2T6TUIvw'
   };
 
-  const makeLite = (id, title)=>{
+  const makeLite = (id, title, isFeatured = false)=>{
     const el = document.createElement('lite-youtube');
     el.setAttribute('videoid', id);
     el.setAttribute('title', title || 'Video');
+    
+    // Se for o vídeo principal, adicionar comportamento de modal
+    if (isFeatured) {
+      el.style.cursor = 'pointer';
+      el.setAttribute('data-video-id', id);
+      el.setAttribute('data-video-title', title || 'Video');
+      el.classList.add('featured-video-player');
+    }
+    
     return el;
   };
 
@@ -213,7 +222,7 @@
       // Set featured video
       if (featured && featuredVideo) {
         featured.innerHTML = '';
-        featured.appendChild(makeLite(featuredVideo.id, featuredVideo.title));
+        featured.appendChild(makeLite(featuredVideo.id, featuredVideo.title, true));
       }
 
       // Set video grid (excluding featured video)
@@ -340,11 +349,22 @@
 
   // Event listeners
   document.addEventListener('click', (e) => {
-    // Open video in modal
+    // Open video in modal - para cards do grid
     if (e.target.closest('.video-card')) {
       const card = e.target.closest('.video-card');
       const videoId = card.getAttribute('data-video-id');
       const title = card.getAttribute('data-video-title');
+      if (videoId) {
+        e.preventDefault();
+        openVideoModal(videoId, title);
+      }
+    }
+    
+    // Open video in modal - para o player principal
+    if (e.target.closest('.featured-video-player')) {
+      const player = e.target.closest('.featured-video-player');
+      const videoId = player.getAttribute('data-video-id');
+      const title = player.getAttribute('data-video-title');
       if (videoId) {
         e.preventDefault();
         openVideoModal(videoId, title);
