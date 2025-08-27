@@ -1,0 +1,13 @@
+{
+  "featured": {
+    "live_now": "", 
+    "latest_live": { "id": "dQw4w9WgXcQ", "title": "Última live (exemplo)" }
+  },
+  "videos": [
+    { "id": "dQw4w9WgXcQ", "title": "Live completa — exemplo" },
+    { "id": "goiWrNiaT0I", "title": "Vídeo novo — exemplo" },
+    { "id": "M7lc1UVf-VE", "title": "Tutorial — exemplo" },
+    { "id": "aqz-KE-bpKQ", "title": "Review — exemplo" },
+    { "id": "ysz5S6PUM-U", "title": "Clipes do canal — exemplo" }
+  ]
+}
