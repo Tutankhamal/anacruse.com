@@ -614,3 +614,139 @@
     initializeDeveloperCredit();
   }
 })();
+
+// Interactive Gallery Effects
+(function(){
+  const initializeGalleryEffects = () => {
+    const carousels = document.querySelectorAll('.carousel');
+    
+    carousels.forEach(carousel => {
+      const track = carousel.querySelector('.carousel-track');
+      if (!track) return;
+      
+      // Duplicate items for seamless infinite scroll
+      const items = track.querySelectorAll('.carousel-item');
+      items.forEach(item => {
+        const clone = item.cloneNode(true);
+        track.appendChild(clone);
+      });
+      
+      // Mouse position tracking for interactive effects
+      carousel.addEventListener('mousemove', function(e) {
+        const rect = this.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        // Calculate distance from center (0 to 1)
+        const distanceFromCenter = Math.sqrt(
+          Math.pow((x - centerX) / centerX, 2) + 
+          Math.pow((y - centerY) / centerY, 2)
+        );
+        
+        // Remove existing classes
+        this.classList.remove('reverse-scroll', 'fast-scroll', 'slow-scroll');
+        
+        // Left side = reverse scroll
+        if (x < centerX * 0.3) {
+          this.classList.add('reverse-scroll');
+        }
+        
+        // Right side = fast scroll
+        if (x > centerX * 1.7) {
+          this.classList.add('fast-scroll');
+        }
+        
+        // Center = slow scroll
+        if (x > centerX * 0.7 && x < centerX * 1.3) {
+          this.classList.add('slow-scroll');
+        }
+        
+        // Distance from center affects speed
+        if (distanceFromCenter > 0.8) {
+          this.classList.add('fast-scroll');
+        }
+      });
+      
+      // Reset on mouse leave
+      carousel.addEventListener('mouseleave', function() {
+        this.classList.remove('reverse-scroll', 'fast-scroll', 'slow-scroll');
+      });
+      
+      // Enhanced button functionality
+      const prevBtn = carousel.querySelector('.carousel-btn.prev');
+      const nextBtn = carousel.querySelector('.carousel-btn.next');
+      
+      if (prevBtn && nextBtn) {
+        let currentTransform = 0;
+        const itemWidth = 370; // 350px + 20px gap
+        
+        nextBtn.addEventListener('click', () => {
+          currentTransform -= itemWidth;
+          track.style.transform = `translateX(${currentTransform}px)`;
+          track.style.animation = 'none';
+          
+          // Resume animation after manual control
+          setTimeout(() => {
+            track.style.animation = '';
+          }, 1000);
+        });
+        
+        prevBtn.addEventListener('click', () => {
+          currentTransform += itemWidth;
+          track.style.transform = `translateX(${currentTransform}px)`;
+          track.style.animation = 'none';
+          
+          // Resume animation after manual control
+          setTimeout(() => {
+            track.style.animation = '';
+          }, 1000);
+        });
+      }
+      
+      // Touch/swipe support for mobile
+      let startX = 0;
+      let currentX = 0;
+      let isDragging = false;
+      
+      track.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        isDragging = true;
+        track.style.transition = 'none';
+      });
+      
+      track.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        currentX = e.touches[0].clientX;
+        const diffX = currentX - startX;
+        track.style.transform = `translateX(${diffX}px)`;
+      });
+      
+      track.addEventListener('touchend', () => {
+        if (!isDragging) return;
+        isDragging = false;
+        
+        const diffX = currentX - startX;
+        if (Math.abs(diffX) > 50) {
+          // Trigger slide
+          if (diffX > 0) {
+            prevBtn?.click();
+          } else {
+            nextBtn?.click();
+          }
+        }
+        
+        track.style.transition = '';
+        track.style.transform = '';
+      });
+    });
+  };
+  
+  // Initialize when DOM is loaded
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeGalleryEffects);
+  } else {
+    initializeGalleryEffects();
+  }
+})();
