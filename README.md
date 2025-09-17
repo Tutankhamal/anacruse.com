@@ -645,10 +645,10 @@ Para dúvidas ou suporte:
 
 <div align="center">
 
-**🎵 Feito com ♥ por [Tutankhamal](https://tutankhamal.com) para [Afonso Fonseca](https://afonsofonseca.com) 🎵**
+**[Tutankhamal](https://tutankhamal.com)**
 
+
+**[Afonso Fonseca](https://afonsofonseca.com)**
 *Compositor • Produtor • Multi-instrumentista*
-
-**🚀 Documentação de nível sênior criada com Trae AI 🚀**
 
 </div>
