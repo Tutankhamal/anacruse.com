@@ -1,654 +1,805 @@
-<div align="center">
+# 🎸 Anacruse - Site Oficial da Banda
 
-# 🎸 ANACRUSE — Site Oficial
+> **Website oficial da banda de rock Anacruse com estética cyberpunk e funcionalidades modernas**
 
-[![Cyberpunk Badge](https://img.shields.io/badge/Theme-Cyberpunk%2FRetrowave-a855f7?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMMTMuMDkgOC4yNkwyMCA5TDEzLjA5IDE1Ljc0TDEyIDIyTDEwLjkxIDE1Ljc0TDQgOUwxMC45MSA4LjI2TDEyIDJaIiBmaWxsPSIjMjJkM2VlIi8+Cjwvc3ZnPgo=)](https://anacruse.com)
-[![Tech Stack](https://img.shields.io/badge/Stack-HTML5%20%7C%20CSS3%20%7C%20Vanilla%20JS-22d3ee?style=for-the-badge)](https://tutankhamal.com)
-[![License](https://img.shields.io/badge/License-Custom%20%7C%20Study%20Only-f472b6?style=for-the-badge)](#-licença-e-créditos)
-[![Developer](https://img.shields.io/badge/Dev-Tutankhamal-a855f7?style=for-the-badge&logo=github)](https://tutankhamal.com)
+![Anacruse Banner](https://i.imgur.com/05mus5v.png)
 
-**🌐 [Site em Produção](https://anacruse.com) • 👨‍💻 [Portfólio do Dev](https://tutankhamal.com) • 📄 [Licença](LICENCA.md)**
+## 📋 Índice
 
----
-
-*Site oficial da banda Anacruse com estética cyberpunk/retrowave dark-only, otimizado para performance e experiência do usuário.*
-
-</div>
-
-## 📋 Índice de Navegação
-
-<details>
-<summary><strong>🚀 Início Rápido</strong></summary>
-
-- [⚡ Setup Instantâneo](#-setup-instantâneo)
-- [🎯 Primeiros Passos](#-primeiros-passos)
-- [📱 Preview Local](#-preview-local)
-
-</details>
-
-<details>
-<summary><strong>✏️ Guia do Editor de Conteúdo</strong></summary>
-
-- [📝 Editando Textos e Links](#-editando-textos-e-links)
-- [🏷️ Metadados e SEO](#️-metadados-e-seo)
-- [🖼️ Gerenciamento de Imagens](#️-gerenciamento-de-imagens)
-- [🎥 Vídeos do YouTube](#-vídeos-do-youtube)
-
-</details>
-
-<details>
-<summary><strong>🎨 Guia do Designer</strong></summary>
-
-- [🌈 Sistema de Cores](#-sistema-de-cores)
-- [🔤 Tipografia](#-tipografia)
-- [🌌 Backgrounds Animados](#-backgrounds-animados)
-- [📐 Layout Responsivo](#-layout-responsivo)
-
-</details>
-
-<details>
-<summary><strong>⚙️ Guia do Desenvolvedor</strong></summary>
-
+- [🎯 Visão Geral](#-visão-geral)
 - [🏗️ Arquitetura do Projeto](#️-arquitetura-do-projeto)
-- [📜 Scripts e APIs](#-scripts-e-apis)
-- [🔧 Customizações Avançadas](#-customizações-avançadas)
-- [🐛 Troubleshooting](#-troubleshooting)
-
-</details>
-
-<details>
-<summary><strong>📚 Referência Técnica</strong></summary>
-
-- [🛠️ Tecnologias Utilizadas](#️-tecnologias-utilizadas)
-- [📊 Especificações Técnicas](#-especificações-técnicas)
-- [♿ Acessibilidade](#-acessibilidade)
-- [⚖️ Licença e Créditos](#️-licença-e-créditos)
-
-</details>
+- [🌐 Estrutura de Páginas](#-estrutura-de-páginas)
+- [🎨 Sistema de Estilos](#-sistema-de-estilos)
+- [⚡ Funcionalidades JavaScript](#-funcionalidades-javascript)
+- [📱 Responsividade](#-responsividade)
+- [🚀 Como Usar](#-como-usar)
+- [🔧 Personalização](#-personalização)
+- [📦 Dependências](#-dependências)
+- [🤝 Contribuição](#-contribuição)
 
 ---
 
-## ⚡ Setup Instantâneo
+## 🎯 Visão Geral
 
-> **💡 Para usuários que querem começar imediatamente**
+O site oficial da banda **Anacruse** é uma aplicação web moderna com tema **cyberpunk/retrowave** que oferece:
 
-```bash
-# Clone ou baixe o projeto
-git clone <repository-url>
-cd "Afonso Fonseca"
+- ✨ **Design Responsivo** com estética cyberpunk
+- 🎥 **Player de Vídeo Otimizado** (lite-youtube-embed)
+- 🌍 **Suporte Multilíngue** (Português/Inglês)
+- 🎵 **Integração com Plataformas** (YouTube, Spotify, etc.)
+- 🛒 **Loja Virtual** integrada
+- 📱 **Mobile-First** com navegação touch
 
-# Abra com Live Server (VS Code) ou servidor local
-# Navegue para: ptbr/index.html ou eng/index.html
-```
+### 🎨 Características Visuais
 
-**🎯 Tarefas mais comuns:**
-- ✏️ **Editar texto**: Abra `ptbr/*.html` ou `eng/*.html` → Edite diretamente
-- 🎨 **Mudar cores**: `assets/css/style.css` → Seção `:root`
-- 🖼️ **Trocar imagens**: Substitua arquivos em `assets/images/`
-- 🎥 **Atualizar vídeos**: Edite `assets/data/afonso-videos.json`
+- **Paleta de Cores**: Roxo neon (#a855f7), Ciano (#22d3ee), Magenta (#f472b6)
+- **Tipografia**: Oxanium (títulos) + Inter (texto)
+- **Efeitos**: Glitch, neon glow, parallax, animações CSS
+- **Background**: Grid animado + fog com movimento
 
 ---
 
 ## 🏗️ Arquitetura do Projeto
 
 ```
-📁 Anacruse Website/
-├── 📁 assets/                    # Recursos estáticos
+anacruse.com/
+├── 📁 ptbr/                    # Versão em Português
+│   ├── index.html              # Página inicial
+│   ├── loja.html              # Loja virtual
+│   ├── banda.html             # Sobre a banda
+│   ├── canal.html             # Canal/vídeos
+│   ├── sobre.html             # Sobre o projeto
+│   └── contato.html           # Contato
+├── 📁 eng/                     # Versão em Inglês
+│   ├── index.html              # Home page
+│   ├── store.html             # Store
+│   ├── band.html              # About band
+│   ├── channel.html           # Channel/videos
+│   ├── about.html             # About project
+│   └── contact.html           # Contact
+├── 📁 assets/
 │   ├── 📁 css/
-│   │   ├── 📄 style.css          # Estilos principais (2111 linhas)
-│   │   └── 📄 lite-yt-embed.css  # YouTube embed otimizado
+│   │   ├── style.css          # Estilos principais (2111 linhas)
+│   │   └── lite-yt-embed.css  # Estilos do player de vídeo
 │   ├── 📁 js/
-│   │   ├── 📄 main.js            # Core JavaScript (752 linhas)
-│   │   ├── 📄 gallery.js         # Carrossel/galeria
-│   │   └── 📄 lite-yt-embed.js   # Web Component YouTube
-│   ├── 📁 images/
-│   │   ├── 🖼️ main_logo.webp     # Logo principal (WebP)
-│   │   ├── 🖼️ og-image.svg       # Open Graph (SVG)
-│   │   └── 📄 favicon.ico        # Favicon multi-size
-│   └── 📁 data/
-│       └── 📄 afonso-videos.json # Dados dos vídeos
-├── 📁 ptbr/                      # Páginas em Português
-│   ├── 📄 index.html            # Home PT-BR
-│   ├── 📄 loja.html             # Loja/produtos
-│   ├── 📄 banda.html            # Sobre a banda
-│   ├── 📄 canal.html            # Canal YouTube
-│   ├── 📄 sobre.html            # Sobre o projeto
-│   └── 📄 contato.html          # Contato
-├── 📁 eng/                       # Páginas em Inglês
-│   ├── 📄 index.html            # Home EN
-│   ├── 📄 store.html            # Store/products
-│   ├── 📄 band.html             # About band
-│   ├── 📄 channel.html          # YouTube channel
-│   ├── 📄 about.html            # About project
-│   └── 📄 contact.html          # Contact
-├── 📄 index.html                 # Redirect automático PT/EN
-├── 📄 README.md                  # Esta documentação
-└── 📄 LICENCA.md                 # Licenças e créditos
+│   │   ├── main.js            # JavaScript principal (752 linhas)
+│   │   ├── gallery.js         # Sistema de galeria/carrossel
+│   │   └── lite-yt-embed.js   # Player de vídeo otimizado
+│   └── 📁 images/
+│       ├── main_logo.webp     # Logo principal
+│       └── favicon.ico        # Ícone do site
+└── index.html                  # Redirecionamento automático
 ```
-
-### 🔍 **Características Técnicas**
-
-| Aspecto | Especificação |
-|---------|---------------|
-| **Tema** | Cyberpunk/Retrowave dark-only |
-| **Performance** | Lazy loading, WebP, CSS otimizado |
-| **Responsividade** | Mobile-first, 6 breakpoints |
-| **Acessibilidade** | ARIA, semântica, contraste |
-| **SEO** | Meta tags completas, Open Graph |
-| **Internacionalização** | PT-BR/EN com localStorage |
-
-## 📝 Guia do Editor
-
-<details>
-<summary><strong>🎯 Editando Textos e Conteúdo</strong></summary>
-
-### **Páginas HTML**
-Cada página está em `ptbr/` (português) e `eng/` (inglês):
-
-```html
-<!-- Exemplo: ptbr/index.html -->
-<h1 class="hero-title">Afonso Fonseca</h1>
-<p class="hero-subtitle">Compositor • Produtor • Multi-instrumentista</p>
-```
-
-### **Metadados SEO**
-```html
-<!-- Título da página -->
-<title>Afonso Fonseca - Compositor e Produtor Musical</title>
-
-<!-- Descrição para buscadores -->
-<meta name="description" content="Sua descrição aqui">
-
-<!-- Open Graph (redes sociais) -->
-<meta property="og:title" content="Título para redes sociais">
-<meta property="og:description" content="Descrição para redes sociais">
-```
-
-### **Dados dos Vídeos**
-```json
-// assets/data/afonso-videos.json
-{
-  "featured": {
-    "live_now": "dQw4w9WgXcQ",     // ID do YouTube
-    "latest_live": "dQw4w9WgXcQ"
-  },
-  "videos": [
-    {
-      "id": "dQw4w9WgXcQ",
-      "title": "Título do Vídeo"
-    }
-  ]
-}
-```
-
-</details>
 
 ---
 
-## 🎨 Guia do Designer
+## 🌐 Estrutura de Páginas
 
-<details>
-<summary><strong>🌈 Sistema de Cores e Estética</strong></summary>
+### 📄 Estrutura HTML Base
 
-### **Variáveis CSS (Tema Cyberpunk)**
-```css
-/* assets/css/style.css - Linha ~15 */
-:root {
-  /* Cores principais */
-  --bg: #0a0a0a;              /* Fundo principal */
-  --text: #e0e0e0;            /* Texto principal */
-  --primary: #ff6b9d;         /* Rosa neon */
-  --secondary: #4ecdc4;       /* Ciano */
-  --accent: #ffe66d;          /* Amarelo */
-  
-  /* Gradientes */
-  --gradient-primary: linear-gradient(135deg, #ff6b9d, #4ecdc4);
-  --gradient-bg: linear-gradient(135deg, #0a0a0a, #1a1a2e);
-  
-  /* Sombras neon */
-  --shadow-neon: 0 0 20px rgba(255, 107, 157, 0.3);
-  --shadow-glow: 0 0 40px rgba(78, 205, 196, 0.2);
-}
-```
+Todas as páginas seguem a mesma estrutura semântica:
 
-### **Breakpoints Responsivos**
-| Breakpoint | Largura | Uso |
-|------------|---------|-----|
-| `@media (max-width: 980px)` | Tablet grande | Layout principal |
-| `@media (max-width: 768px)` | Tablet | Menu mobile |
-| `@media (max-width: 700px)` | Mobile grande | Ajustes de texto |
-| `@media (max-width: 580px)` | Mobile pequeno | Layout compacto |
-
-### **Animações Disponíveis**
-```css
-/* Pulsar neon */
-.pulse-neon { animation: pulse-neon 2s infinite; }
-
-/* Glitch effect */
-.glitch { animation: glitch 0.3s infinite; }
-
-/* Parallax background */
-.bg-grid { animation: grid-move 20s linear infinite; }
-```
-
-</details>
-
----
-
-## 💻 Guia do Desenvolvedor
-
-<details>
-<summary><strong>⚙️ APIs e Funcionalidades JavaScript</strong></summary>
-
-### **Estrutura do main.js**
-```javascript
-// assets/js/main.js - Principais funções:
-
-// 1. Menu mobile toggle
-function toggleMobileMenu() { /* ... */ }
-
-// 2. Navegação ativa
-function setActiveNavigation() { /* ... */ }
-
-// 3. Parallax background
-function initParallax() { /* ... */ }
-
-// 4. Detecção de idioma
-function handleLanguageRedirect() { /* ... */ }
-
-// 5. YouTube embed otimizado
-function initYouTubeEmbeds() { /* ... */ }
-```
-
-### **Carregamento de Vídeos**
-```javascript
-// Carrega dados do JSON
-fetch('./assets/data/afonso-videos.json')
-  .then(response => response.json())
-  .then(data => {
-    // Processa vídeos em destaque
-    loadFeaturedVideos(data.featured);
-    // Carrega lista de vídeos
-    loadVideoList(data.videos);
-  });
-```
-
-### **Performance Otimizations**
-- **Lazy Loading**: Imagens e vídeos carregam sob demanda
-- **Web Components**: YouTube embed customizado
-- **CSS Critical**: Estilos inline para above-the-fold
-- **Preload**: Fontes e recursos críticos
-
-</details>
-
-## 📚 Referência Técnica
-
-<details>
-<summary><strong>🔧 Troubleshooting e Soluções</strong></summary>
-
-### **Problemas Comuns**
-
-| Problema | Causa | Solução |
-|----------|-------|----------|
-| **Vídeos não carregam** | JSON malformado | Valide `afonso-videos.json` |
-| **Estilos quebrados** | CSS cache | Ctrl+F5 ou limpe cache |
-| **Menu mobile não abre** | JavaScript erro | Verifique console (F12) |
-| **Imagens não aparecem** | Caminho incorreto | Verifique `assets/images/` |
-| **Fontes não carregam** | CDN bloqueado | Use fontes locais |
-
-### **Validação de Arquivos**
-```bash
-# Validar JSON
-node -e "console.log(JSON.parse(require('fs').readFileSync('./assets/data/afonso-videos.json')))"
-
-# Verificar links quebrados (com ferramenta)
-npx broken-link-checker http://localhost:3000
-
-# Validar HTML
-npx html-validate ptbr/*.html eng/*.html
-```
-
-### **Performance Check**
-- **Lighthouse**: Teste no Chrome DevTools
-- **GTmetrix**: Análise completa de performance
-- **WebPageTest**: Teste de velocidade global
-
-</details>
-
-<details>
-<summary><strong>🚀 Checklist de Deploy</strong></summary>
-
-### **Antes do Deploy**
-- [ ] ✅ Testar todas as páginas localmente
-- [ ] ✅ Validar JSON de vídeos
-- [ ] ✅ Otimizar imagens (WebP, compressão)
-- [ ] ✅ Minificar CSS/JS (opcional)
-- [ ] ✅ Testar responsividade (mobile/tablet)
-- [ ] ✅ Verificar meta tags SEO
-- [ ] ✅ Testar links externos
-
-### **Deploy Recomendado**
-```bash
-# Netlify (arrastar pasta)
-# Vercel (conectar GitHub)
-# GitHub Pages (branch gh-pages)
-
-# Configuração de servidor (se necessário)
-# .htaccess para Apache:
-RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.html [QSA,L]
-```
-
-### **Pós-Deploy**
-- [ ] ✅ Testar URL de produção
-- [ ] ✅ Verificar HTTPS
-- [ ] ✅ Testar compartilhamento social
-- [ ] ✅ Configurar analytics (opcional)
-
-</details>
-
-<details>
-<summary><strong>🛠️ Customizações Avançadas</strong></summary>
-
-### **Adicionando Nova Página**
-1. **Criar arquivos HTML**:
-   ```bash
-   # PT-BR
-   cp ptbr/sobre.html ptbr/nova-pagina.html
-   # EN
-   cp eng/about.html eng/new-page.html
-   ```
-
-2. **Atualizar navegação** em todas as páginas:
-   ```html
-   <nav class="navbar">
-     <!-- Adicionar novo item -->
-     <a href="nova-pagina.html" class="nav-link">Nova Página</a>
-   </nav>
-   ```
-
-### **Integrações Externas**
-```javascript
-// Google Analytics
-gtag('config', 'GA_MEASUREMENT_ID');
-
-// Facebook Pixel
-fbq('track', 'PageView');
-
-// Hotjar
-hj('identify', 'USER_ID', { /* attributes */ });
-```
-
-### **Otimizações de Performance**
 ```html
-<!-- Preload crítico -->
-<link rel="preload" href="assets/css/style.css" as="style">
-<link rel="preload" href="assets/js/main.js" as="script">
-
-<!-- DNS prefetch -->
-<link rel="dns-prefetch" href="//fonts.googleapis.com">
-<link rel="dns-prefetch" href="//www.youtube.com">
-```
-
-</details>
-
----
-
-## 📋 Templates e Exemplos
-
-### **Template de Nova Página**
-```html
-<!DOCTYPE html>
-<html lang="pt-BR">
+<!doctype html>
+<html lang="pt-BR" | lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Título da Página - Afonso Fonseca</title>
-    <meta name="description" content="Descrição da página">
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="Título da Página">
-    <meta property="og:description" content="Descrição da página">
-    <meta property="og:image" content="../assets/images/og-image.svg">
-    
-    <!-- Estilos -->
-    <link rel="stylesheet" href="../assets/css/style.css">
+  <!-- Meta tags SEO otimizadas -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  
+  <!-- Open Graph + Twitter Cards -->
+  <meta property="og:type" content="website">
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <!-- Fontes e estilos -->
+  <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/lite-yt-embed.css">
 </head>
 <body>
-    <!-- Header padrão -->
-    <header class="header">
-        <!-- Copiar de outra página -->
-    </header>
-    
-    <!-- Conteúdo principal -->
-    <main class="main">
-        <section class="section">
-            <div class="container">
-                <h1>Título da Página</h1>
-                <p>Conteúdo aqui...</p>
-            </div>
-        </section>
-    </main>
-    
-    <!-- Footer padrão -->
-    <footer class="footer">
-        <!-- Copiar de outra página -->
-    </footer>
-    
-    <!-- Scripts -->
-    <script src="../assets/js/main.js"></script>
+  <!-- Background animado -->
+  <div class="bg-wrap">
+    <div class="bg-grid"></div>
+    <div class="bg-fog"></div>
+  </div>
+  
+  <!-- Navegação fixa -->
+  <header class="navbar">...</header>
+  
+  <!-- Conteúdo principal -->
+  <main>...</main>
+  
+  <!-- Rodapé com links sociais -->
+  <footer class="footer">...</footer>
+  
+  <!-- Scripts -->
+  <script src="../assets/js/lite-yt-embed.js"></script>
+  <script src="../assets/js/main.js"></script>
 </body>
 </html>
 ```
 
+### 🧭 Sistema de Navegação
+
+**Navbar Responsiva:**
+- Logo com efeito glitch no hover
+- Menu horizontal (desktop) / hamburger (mobile)
+- Seletor de idioma (PT/EN)
+- Indicador de página ativa
+- Backdrop blur + transparência
+
+**Links de Navegação:**
+- Home/Início
+- Store/Loja
+- Band/Banda
+- Channel/Canal
+- About/Sobre
+- Contact/Contato
+
 ---
-- O item ativo do menu usa aria-current="page". Se criar novas páginas, mantenha este atributo para acessibilidade e destaque.
 
-2) Metadados (SEO / Open Graph)
-- Em cada página, no <head>, ajuste: <title>, meta description, keywords, author, developer, canonical.
-- Open Graph (og:title, og:description, og:image) é importante para compartilhamento. Recomendo usar uma imagem local (assets/images) com proporção 1200x630.
-- Após publicar no seu domínio, ajuste o link canonical para https://anacruse.com/<rota>.
+## 🎨 Sistema de Estilos
 
-Como trocar imagens (formatos, tamanhos, proporções e resolução)
-- Priorize SVG para logos/ícones (nítido e leve). Já existe assets/images/og-image.svg.
-- Para fotos e gráficos com textura, use WebP (leve e com ótima qualidade).
+### 🎨 Variáveis CSS (`:root`)
 
-Recomendações por seção
-- Produtos (loja):
-  - O layout usa aspect-ratio: 1 e object-fit: cover (miniaturas quadradas).
-  - Dimensões sugeridas: 800×800 px (mínimo) até 1200×1200 px (ideal)
-  - Peso-alvo: 200–300 KB por imagem
-  - Centralize o assunto (por causa do corte “cover”).
-- Galerias/Carrosséis:
-  - Os itens são horizontais; boa base é exportar 1200×880 px (WebP) com object-fit: cover.
-  - Peso-alvo: 150–250 KB.
-- Banners/hero:
-  - Se usar fotos grandes, prefira WebP entre 1600–2000 px de largura (250–400 KB). Sempre inclua alt.
-- Favicon:
-  - Já existe assets/images/favicon.ico. Pode substituir mantendo múltiplos tamanhos dentro do .ico.
+```css
+:root {
+  /* Cores principais */
+  --bg: #0a0a0f;                    /* Fundo escuro */
+  --bg-soft: #0f0f16;               /* Fundo suave */
+  --glass: rgba(0,0,0,0.5);         /* Efeito vidro */
+  --text: #e5e7eb;                  /* Texto principal */
+  --muted: #a1a1aa;                 /* Texto secundário */
+  
+  /* Cores neon */
+  --primary: #a855f7;               /* Roxo neon */
+  --primary-2: #7c3aed;             /* Roxo hover */
+  --accent: #22d3ee;                /* Ciano apoio */
+  --magenta: #f472b6;               /* Magenta */
+  --success: #34d399;               /* Verde sucesso */
+  --danger: #fb7185;                /* Vermelho erro */
+  
+  /* Efeitos */
+  --shadow: 0 10px 30px rgba(168,85,247,0.25);
+  --radius: 14px;
+  --radius-sm: 10px;
+  --maxw: 1200px;
+}
+```
 
-Como customizar as cores (variáveis CSS)
-- Todas as cores estão em assets/css/style.css, dentro de :root. Exemplo:
+### 🌟 Componentes Principais
 
-  :root{
-    --bg:#0a0a0f;        /* fundo */
-    --bg-soft:#0f0f16;   /* variação de fundo */
-    --glass:rgba(0,0,0,0.5);
-    --text:#e5e7eb;      /* texto principal */
-    --muted:#a1a1aa;     /* texto secundário */
-    --primary:#a855f7;   /* cor primária (neon roxo) */
-    --primary-2:#7c3aed; /* variação para hover */
-    --accent:#22d3ee;    /* ciano de apoio */
-    --magenta:#f472b6;   /* rosa de apoio */
-    --success:#34d399;   /* sucesso */
-    --danger:#fb7185;    /* erro/alerta */
-    --shadow:0 10px 30px rgba(168,85,247,0.25);
-    --radius:14px;
-    --radius-sm:10px;
-    --maxw:1200px;
-  }
+#### 1. **Background Animado**
+```css
+.bg-wrap {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
 
-- Troque os valores conforme sua paleta. O tema inteiro herda essas variáveis.
-- Boas práticas: mantenha bom contraste entre texto e fundo; teste hovers e focos depois de mudar as cores.
+.bg-grid {
+  /* Grid com gradientes radiais */
+  background: 
+    radial-gradient(circle at 50% 10%, rgba(168,85,247,0.12), transparent 60%),
+    repeating-linear-gradient(to right, rgba(168,85,247,0.08) 0 1px, transparent 1px 120px),
+    repeating-linear-gradient(to bottom, rgba(34,211,238,0.06) 0 1px, transparent 1px 120px);
+}
 
-Tipografia
-- Google Fonts: Oxanium (títulos) e Inter (texto). Ajuste o <link> no <head> das páginas e, se necessário, a font-family em style.css.
+.bg-fog {
+  /* Névoa com movimento */
+  animation: fogMove 18s ease-in-out infinite alternate;
+}
+```
 
-Backgrounds (grid + fog)
-- O fundo é todo em CSS: há uma grade (bg-grid) e uma névoa animada (bg-fog). Ao iniciar um vídeo (modo playing), a névoa fica mais intensa.
-- Pode ajustar gradientes e opacidades em style.css, mas mude com cuidado para preservar a estética e a performance.
+#### 2. **Botões Neon**
+```css
+.btn {
+  padding: 14px 24px;
+  border-radius: 16px;
+  border: 2px solid rgba(168,85,247,0.6);
+  background: rgba(124,58,237,0.3);
+  box-shadow: 
+    0 0 20px rgba(168,85,247,0.3),
+    0 4px 15px rgba(0,0,0,0.2),
+    inset 0 1px 0 rgba(255,255,255,0.1);
+  animation: btnPulse 4s ease-in-out infinite;
+}
 
-Scripts e funcionamento
-- assets/js/main.js:
-  - Menu mobile (toggle, fechar ao clicar fora).
-  - Destaque automático do menu conforme a página atual.
-  - Lite YouTube helper: cria poster/iframe sob demanda em <lite-youtube>.
-  - Segurança em links externos: adiciona rel seguro aos target="_blank".
-  - Lista de vídeos do YouTube via RSS (sem API key) e exibição em destaque e grade.
-  - Modal de vídeo (abre/fecha com click/ESC e trava scroll ao abrir).
-  - Controles simples de carrossel.
-  - Integração com o modal do Mercado Pago (detecta e adiciona evento para fechar com ESC/click fora).
-- assets/js/lite-yt-embed.js:
-  - Web Component para embed do YouTube leve e acessível. Evite alterações, apenas use <lite-youtube>.
-- assets/js/gallery.js:
-  - Comportamentos de galeria/carrossel com auto-scroll e suporte a toque.
+.btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  animation: btnNeonPulse 1.2s ease-in-out infinite alternate;
+}
+```
 
-Ícones
-- Font Awesome 6 (CDN). Troque/adicione ícones ajustando as classes <i class="fa-..."> no HTML.
+#### 3. **Efeito Glitch**
+```css
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  clip-path: inset(0 0 0 0);
+}
 
-Internacionalização (PT/EN)
-- Seletor de idioma no topo (PT/EN). A preferência é registrada no localStorage.
+.glitch::before {
+  left: 2px;
+  text-shadow: -2px 0 var(--accent);
+  animation: glitchTop 2.5s infinite ease-in-out alternate;
+}
 
-Acessibilidade e boas práticas
-- Use alt descritivo nas imagens.
-- Links ativos com aria-current="page".
-- Modais fecham por ESC e clique fora. Links externos usam rel seguro.
+.glitch::after {
+  left: -2px;
+  text-shadow: 2px 0 var(--magenta);
+  animation: glitchBot 2.8s infinite ease-in-out alternate;
+}
+```
 
-Tecnologias utilizadas
-- HTML5, CSS3, JavaScript (Vanilla)
-- Google Fonts (Oxanium, Inter)
-- Font Awesome 6 (CDN)
-- Lite YouTube Embed (Web Component)
-- YouTube RSS + fetch via AllOrigins (sem API key)
-- Mercado Pago (suporte visual ao modal e botão)
-- Imagens SVG/WebP
+#### 4. **Avatar com Efeitos**
+```css
+.hero .avatar {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%, rgba(168,85,247,0.35), transparent 60%);
+  border: 2px solid rgba(168,85,247,0.6);
+  box-shadow: 0 0 30px rgba(168,85,247,0.3);
+  animation: logoPulse 3s ease-in-out infinite;
+}
 
-Créditos, licença e política de uso
-- Uso particular: somente André Borba “Tutankhamal”, Afonso Fonseca e a banda Anacruse estão autorizados a modificar/comercializar.
-- Estudo: o código está livre para estudos, com atribuição obrigatória de créditos. Uso comercial indevido é proibido.
-- Entrega “no estado em que se encontra”: Tutankhamal entrega o projeto como está, sem garantias de qualquer tipo, e não se responsabiliza por mal uso ou uso indevido do código aqui presente.
-- Portfólio do desenvolvedor: https://tutankhamal.com
-- Licenças e créditos de terceiros: veja o arquivo LICENCA.md.
+.hero .avatar:hover {
+  animation: logoGlitchHover 0.4s ease-in-out, logoZoom 0.3s ease-in-out forwards;
+}
 
-Dica final
-- Faça alterações graduais e teste em páginas reais. Comece por textos, imagens e variáveis de cor; depois parta para ajustes em scripts e backgrounds.
-
-### **Exemplo de Vídeo JSON**
-```json
-{
-  "featured": {
-    "live_now": "dQw4w9WgXcQ",
-    "latest_live": "dQw4w9WgXcQ"
-  },
-  "videos": [
-    {
-      "id": "dQw4w9WgXcQ",
-      "title": "Exemplo de Vídeo 1"
-    },
-    {
-      "id": "dQw4w9WgXcQ",
-      "title": "Exemplo de Vídeo 2"
-    }
-  ]
+/* Efeito Neon Saber na borda */
+.hero .avatar::after {
+  background: conic-gradient(
+    from 0deg,
+    rgba(168,85,247,0) 0%,
+    rgba(168,85,247,0.8) 25%,
+    rgba(34,211,238,0.8) 50%,
+    rgba(168,85,247,0.8) 75%,
+    rgba(168,85,247,0) 100%
+  );
+  animation: neonRotate 4s linear infinite;
 }
 ```
 
 ---
 
-## 🏆 Especificações Técnicas
+## ⚡ Funcionalidades JavaScript
 
-### **Stack Tecnológico**
-- **Frontend**: HTML5 semântico, CSS3 moderno, JavaScript ES6+
-- **Estética**: Cyberpunk/Retrowave dark-only theme
-- **Performance**: Lazy loading, WebP, CSS otimizado
-- **Acessibilidade**: ARIA completo, navegação por teclado
-- **SEO**: Meta tags completas, Open Graph, estrutura semântica
-- **Responsividade**: Mobile-first, 6 breakpoints
+### 📱 Menu Mobile (`main.js`)
 
-### **Dependências Externas**
-```html
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+```javascript
+// Toggle do menu hamburger
+const hamb = document.querySelector('.hamb');
+const mobileMenu = document.querySelector('.mobile-menu');
 
-<!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+hamb.addEventListener('click', () => {
+  hamb.classList.toggle('active');
+  mobileMenu.classList.toggle('active');
+  hamb.setAttribute('aria-expanded', mobileMenu.classList.contains('active'));
+});
 
-<!-- Lite YouTube Embed -->
-<script src="assets/js/lite-yt-embed.js"></script>
+// Fechar menu ao clicar fora
+document.addEventListener('click', (e) => {
+  if (!hamb.contains(e.target) && !mobileMenu.contains(e.target)) {
+    hamb.classList.remove('active');
+    mobileMenu.classList.remove('active');
+  }
+});
 ```
 
-### **Compatibilidade**
-- ✅ **Chrome 60+** (Recomendado)
-- ✅ **Firefox 55+**
-- ✅ **Safari 12+**
-- ✅ **Edge 79+**
-- ✅ **Mobile browsers** (iOS Safari, Chrome Mobile)
+### 🌍 Sistema de Idiomas
+
+```javascript
+// Redirecionamento automático baseado no idioma do navegador
+const isRoot = document.documentElement.hasAttribute('data-root-index');
+if (isRoot) {
+  const nav = navigator.language || navigator.userLanguage || 'en';
+  const isPT = /pt|pt-BR/i.test(nav);
+  const stored = localStorage.getItem('site_lang');
+  const target = stored || (isPT ? 'ptbr' : 'eng');
+  window.location.replace(`./${target}/index.html`);
+}
+```
+
+### 🎥 Player de Vídeo Otimizado
+
+**Lite YouTube Embed** - Carregamento sob demanda:
+
+```javascript
+// Classe personalizada para YouTube embeds otimizados
+class LiteYTEmbed extends HTMLElement {
+  connectedCallback() {
+    this.videoId = this.getAttribute('videoid');
+    
+    // Thumbnail de alta qualidade
+    if (!this.style.backgroundImage) {
+      this.style.backgroundImage = `url("https://i.ytimg.com/vi/${this.videoId}/hqdefault.jpg")`;
+    }
+    
+    // Botão de play
+    const playBtnEl = document.createElement('button');
+    playBtnEl.classList.add('lyt-playbtn');
+    this.append(playBtnEl);
+    
+    // Carregar iframe apenas quando clicado
+    this.addEventListener('click', this.activate);
+  }
+  
+  async activate() {
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://www.youtube-nocookie.com/embed/${this.videoId}?autoplay=1&rel=0`;
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+    this.innerHTML = '';
+    this.appendChild(iframe);
+    
+    // Adicionar classe para efeitos visuais
+    document.documentElement.classList.add('is-playing');
+  }
+}
+
+customElements.define('lite-youtube', LiteYTEmbed);
+```
+
+### 🎠 Sistema de Galeria (`gallery.js`)
+
+```javascript
+class ModernGallery {
+  constructor(selector) {
+    this.carousel = document.querySelector(selector);
+    this.track = this.carousel.querySelector('.carousel-track');
+    this.items = this.carousel.querySelectorAll('.carousel-item');
+    
+    this.currentIndex = 0;
+    this.itemsToShow = this.getItemsToShow(); // Responsivo
+    
+    this.init();
+  }
+  
+  getItemsToShow() {
+    const width = window.innerWidth;
+    if (width <= 768) return 1;      // Mobile
+    if (width <= 1024) return 2;     // Tablet
+    return 3;                        // Desktop
+  }
+  
+  setupTouchEvents() {
+    // Suporte a gestos touch para mobile
+    let startX = 0;
+    let currentX = 0;
+    
+    this.track.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+    });
+    
+    this.track.addEventListener('touchend', () => {
+      const diffX = currentX - startX;
+      const threshold = 50;
+      
+      if (Math.abs(diffX) > threshold) {
+        if (diffX > 0) {
+          this.prev();
+        } else {
+          this.next();
+        }
+      }
+    });
+  }
+}
+```
+
+### 🎯 Parallax do Background
+
+```javascript
+// Efeito parallax baseado no movimento do mouse
+const bgGrid = document.querySelector('.bg-grid');
+const bgFog = document.querySelector('.bg-fog');
+
+window.addEventListener('mousemove', (e) => {
+  const x = (e.clientX / window.innerWidth) - 0.5;
+  const y = (e.clientY / window.innerHeight) - 0.5;
+  
+  bgGrid.style.transform = `translate(${x*10}px, ${y*10}px)`;
+  bgFog.style.setProperty('--x', `${(x+0.5)*100}%`);
+  bgFog.style.setProperty('--y', `${(y+0.5)*100}%`);
+}, {passive: true});
+```
+
+### 📺 Integração com YouTube API
+
+```javascript
+// Buscar vídeos dos canais via RSS (sem API key)
+const fetchChannelVideos = async (channelId, maxResults = 10) => {
+  try {
+    const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;
+    const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(rssUrl)}`;
+    
+    const response = await fetch(proxyUrl);
+    const data = await response.json();
+    const parser = new DOMParser();
+    const xmlDoc = parser.parseFromString(data.contents, 'text/xml');
+    
+    const entries = Array.from(xmlDoc.querySelectorAll('entry'));
+    return entries.slice(0, maxResults).map(entry => {
+      const id = entry.querySelector('yt\\:videoId, videoId')?.textContent;
+      const title = entry.querySelector('title')?.textContent;
+      const published = entry.querySelector('published')?.textContent;
+      return { id, title, published };
+    }).filter(v => v.id && v.title && !/(#shorts?|shorts?)/i.test(v.title));
+  } catch (error) {
+    console.warn('Failed to fetch videos:', error);
+    return [];
+  }
+};
+
+// Canais configurados
+const CHANNELS = {
+  afonso: 'UCN1qsUWT7bElmmqmROlJpvw',
+  anacruse: 'UCFfqCGtJckEiFJX2T6TUIvw'
+};
+```
 
 ---
 
-## 📄 Licenças e Créditos
+## 📱 Responsividade
 
-### **Código**
-- **Licença**: Uso restrito (ver detalhes abaixo)
-- **Desenvolvedor**: [André Borba "Tutankhamal"](https://tutankhamal.com)
-- **Cliente**: [Afonso Fonseca](https://afonsofonseca.com) / Banda Anacruse
+### 📐 Breakpoints
 
-### **Recursos Externos**
-- **Fontes**: Google Fonts (Orbitron, Rajdhani) - SIL Open Font License
-- **Ícones**: Font Awesome 6 - Font Awesome Free License
-- **YouTube Embed**: [lite-yt-embed](https://github.com/paulirish/lite-yt-embed) - Apache 2.0
-- **Emojis**: Nativos do sistema
+| Dispositivo | Largura | Colunas Grid | Menu |
+|-------------|---------|--------------|------|
+| **Mobile** | ≤ 768px | 1 coluna | Hamburger |
+| **Tablet** | 769px - 1024px | 2 colunas | Hamburger |
+| **Desktop** | ≥ 1025px | 3 colunas | Horizontal |
 
-### **Política de Uso**
-- **✅ Uso Autorizado**: André Borba "Tutankhamal", Afonso Fonseca e Banda Anacruse
-- **📚 Estudo**: Código livre para estudos com atribuição obrigatória
-- **❌ Uso Comercial**: Proibido sem autorização expressa
-- **⚠️ Garantias**: Fornecido "como está", sem garantias de qualquer tipo
+### 📱 Adaptações Mobile
 
-### **Licenças Completas**
-Consulte o arquivo `LICENCA.md` para detalhes completos sobre licenças de terceiros.
+```css
+@media (max-width: 980px) {
+  .nav-links { display: none; }
+  .hamb { display: flex; }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    margin-top: 50px;
+    text-align: center;
+  }
+  
+  .hero h1 {
+    font-size: clamp(28px, 8vw, 48px);
+  }
+  
+  .hero .ctas {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .grid.cols-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 580px) {
+  .container {
+    padding: 0 16px;
+  }
+  
+  .section {
+    padding: 48px 0;
+  }
+}
+```
+
+### 🤏 Gestos Touch
+
+- **Swipe horizontal**: Navegação na galeria
+- **Tap**: Ativação de vídeos e botões
+- **Pinch/Zoom**: Suportado nativamente
+- **Scroll**: Suave com `scroll-behavior: smooth`
+
+---
+
+## 🚀 Como Usar
+
+### 1. **Instalação Local**
+
+```bash
+# Clonar o repositório
+git clone https://github.com/Tutankhamal/anacruse.com.git
+cd anacruse.com
+
+# Servir localmente (Python)
+python -m http.server 8000
+
+# Ou com Node.js
+npx serve .
+
+# Acessar
+open http://localhost:8000
+```
+
+### 2. **Estrutura de Deploy**
+
+```
+📁 Servidor Web
+├── index.html              # Redirecionamento
+├── 📁 ptbr/               # Versão PT-BR
+├── 📁 eng/                # Versão EN
+└── 📁 assets/             # Recursos estáticos
+```
+
+### 3. **Configuração de Servidor**
+
+**Apache (.htaccess):**
+```apache
+# Redirecionamento baseado no idioma
+RewriteEngine On
+RewriteCond %{HTTP_ACCEPT_LANGUAGE} ^pt [NC]
+RewriteRule ^$ /ptbr/index.html [R,L]
+RewriteRule ^$ /eng/index.html [R,L]
+
+# Cache para assets
+<FilesMatch "\.(css|js|png|jpg|jpeg|gif|webp|svg|ico)$">
+  ExpiresActive On
+  ExpiresDefault "access plus 1 month"
+</FilesMatch>
+```
+
+**Nginx:**
+```nginx
+location / {
+  # Redirecionamento por idioma
+  if ($http_accept_language ~* "^pt") {
+    return 302 /ptbr/index.html;
+  }
+  return 302 /eng/index.html;
+}
+
+# Cache para assets
+location ~* \.(css|js|png|jpg|jpeg|gif|webp|svg|ico)$ {
+  expires 1M;
+  add_header Cache-Control "public, immutable";
+}
+```
+
+---
+
+## 🔧 Personalização
+
+### 🎨 Alterando Cores
+
+**1. Editar variáveis CSS:**
+```css
+:root {
+  --primary: #your-color;     /* Cor principal */
+  --accent: #your-accent;     /* Cor de apoio */
+  --magenta: #your-magenta;   /* Cor de destaque */
+}
+```
+
+**2. Cores disponíveis:**
+- `--primary`: Roxo neon principal
+- `--primary-2`: Variação hover
+- `--accent`: Ciano de apoio
+- `--magenta`: Rosa/magenta
+- `--success`: Verde para sucessos
+- `--danger`: Vermelho para erros
+
+### 🖼️ Alterando Imagens
+
+**Logo principal:**
+```html
+<!-- Substituir em todas as páginas -->
+<img src="../assets/images/main_logo.webp" alt="Anacruse logo" />
+```
+
+**Favicon:**
+```html
+<link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico" />
+```
+
+**Open Graph:**
+```html
+<meta property="og:image" content="https://i.imgur.com/05mus5v.png" />
+```
+
+### 📝 Alterando Textos
+
+**Metadados SEO:**
+```html
+<title>Seu Título | Sua Banda</title>
+<meta name="description" content="Sua descrição aqui" />
+<meta name="keywords" content="suas, palavras, chave" />
+```
+
+**Conteúdo das páginas:**
+- Editar diretamente nos arquivos HTML
+- Manter a estrutura semântica
+- Atualizar ambos os idiomas (ptbr/ e eng/)
+
+### 🎵 Configurando Canais
+
+**IDs dos canais YouTube:**
+```javascript
+// Em main.js
+const CHANNELS = {
+  principal: 'SEU_CHANNEL_ID_PRINCIPAL',
+  banda: 'SEU_CHANNEL_ID_BANDA'
+};
+```
+
+**Links sociais:**
+```html
+<!-- No footer -->
+<a href="https://youtube.com/@seucanalaqui" target="_blank">
+  <i class="fa-brands fa-youtube"></i> YouTube
+</a>
+```
+
+---
+
+## 📦 Dependências
+
+### 🌐 CDN Externas
+
+| Recurso | URL | Versão | Uso |
+|---------|-----|--------|-----|
+| **Google Fonts** | fonts.googleapis.com | Latest | Oxanium + Inter |
+| **Font Awesome** | cdnjs.cloudflare.com | 6.5.0 | Ícones |
+| **AllOrigins** | api.allorigins.win | - | Proxy CORS |
+
+### 📁 Arquivos Locais
+
+| Arquivo | Tamanho | Descrição |
+|---------|---------|----------|
+| `style.css` | ~2111 linhas | Estilos principais |
+| `main.js` | ~752 linhas | JavaScript principal |
+| `lite-yt-embed.js` | ~239 linhas | Player de vídeo |
+| `lite-yt-embed.css` | ~95 linhas | Estilos do player |
+| `gallery.js` | ~244 linhas | Sistema de galeria |
+
+### 🔧 Ferramentas de Desenvolvimento
+
+```json
+{
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "http-server": "^14.1.1",
+    "serve": "^14.2.1"
+  }
+}
+```
+
+### 🌍 Compatibilidade
+
+| Navegador | Versão Mínima | Suporte |
+|-----------|---------------|----------|
+| **Chrome** | 88+ | ✅ Completo |
+| **Firefox** | 85+ | ✅ Completo |
+| **Safari** | 14+ | ✅ Completo |
+| **Edge** | 88+ | ✅ Completo |
+| **Mobile** | iOS 14+, Android 10+ | ✅ Completo |
+
+**Recursos utilizados:**
+- CSS Custom Properties (variáveis)
+- CSS Grid & Flexbox
+- Custom Elements (Web Components)
+- Fetch API
+- LocalStorage
+- Touch Events
+- Intersection Observer
 
 ---
 
 ## 🤝 Contribuição
 
-Para melhorias ou correções:
-1. Fork o projeto
-2. Crie uma branch (`git checkout -b feature/nova-funcionalidade`)
-3. Commit suas mudanças (`git commit -m 'Adiciona nova funcionalidade'`)
-4. Push para a branch (`git push origin feature/nova-funcionalidade`)
-5. Abra um Pull Request
+### 🐛 Reportando Bugs
+
+1. **Verifique** se o bug já foi reportado
+2. **Crie uma issue** com:
+   - Descrição clara do problema
+   - Passos para reproduzir
+   - Screenshots (se aplicável)
+   - Informações do navegador/dispositivo
+
+### 💡 Sugerindo Melhorias
+
+1. **Fork** o repositório
+2. **Crie** uma branch para sua feature
+3. **Implemente** as mudanças
+4. **Teste** em diferentes dispositivos
+5. **Envie** um Pull Request
+
+### 📋 Checklist para PRs
+
+- [ ] Código testado em Chrome, Firefox e Safari
+- [ ] Responsividade verificada (mobile/tablet/desktop)
+- [ ] Ambos idiomas atualizados (PT/EN)
+- [ ] Performance não impactada
+- [ ] Acessibilidade mantida
+- [ ] Documentação atualizada
+
+### 🎨 Padrões de Código
+
+**CSS:**
+```css
+/* Comentários descritivos */
+.component {
+  /* Propriedades em ordem alfabética */
+  background: var(--bg);
+  border-radius: var(--radius);
+  color: var(--text);
+  padding: 1rem;
+}
+
+/* Media queries no final */
+@media (max-width: 768px) {
+  .component {
+    padding: 0.5rem;
+  }
+}
+```
+
+**JavaScript:**
+```javascript
+// Comentários explicativos
+const functionName = (param) => {
+  // Lógica clara e concisa
+  return result;
+};
+
+// Event listeners com passive quando possível
+element.addEventListener('scroll', handler, {passive: true});
+```
+
+---
+
+## 📄 Licença
+
+**MIT License** - Veja o arquivo [LICENSE](LICENSE) para detalhes.
+
+### 🏷️ Créditos
+
+- **Desenvolvedor**: André "Tutankhamal" Borba
+- **Website**: [tutankhamal.com](https://tutankhamal.com)
+- **Banda**: Anacruse
+- **Inspiração**: Estética Cyberpunk/Retrowave
+
+### 🎵 Recursos Utilizados
+
+- **Lite YouTube Embed**: [Paul Irish](https://github.com/paulirish/lite-youtube-embed)
+- **Font Awesome**: [Fonticons](https://fontawesome.com)
+- **Google Fonts**: [Oxanium](https://fonts.google.com/specimen/Oxanium) + [Inter](https://fonts.google.com/specimen/Inter)
 
 ---
 
 ## 📞 Suporte
 
-Para dúvidas ou suporte:
-- 🎵 **Artista**: [Afonso Fonseca](https://afonsofonseca.com)
-- 💻 **Desenvolvedor**: [Tutankhamal](https://tutankhamal.com)
-- 📧 **Email**: Disponível nos sites acima
-- 🌐 **Website**: [anacruse.com](https://anacruse.com)
+### 🆘 Precisa de Ajuda?
+
+- 📧 **Email**: contato@tutankhamal.com
+- 🐦 **Twitter**: [@oafonsofonseca](https://twitter.com/oafonsofonseca)
+- 💬 **Discord**: [Comunidade](https://discord.com/invite/szrjjcsu4C)
+- 🌐 **Website**: [tutankhamal.com](https://tutankhamal.com)
+
+### 📚 Recursos Adicionais
+
+- [Documentação CSS Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout)
+- [Web Components Guide](https://developer.mozilla.org/en-US/docs/Web/Web_Components)
+- [YouTube API Documentation](https://developers.google.com/youtube/v3)
+- [Accessibility Guidelines](https://www.w3.org/WAI/WCAG21/quickref/)
 
 ---
 
 <div align="center">
 
-**[Tutankhamal](https://tutankhamal.com)**
-
-
-**[Afonso Fonseca](https://afonsofonseca.com)**
-*Compositor • Produtor • Multi-instrumentista*
+[⬆️ Voltar ao topo](#-anacruse---site-oficial-da-banda)
 
 </div>
